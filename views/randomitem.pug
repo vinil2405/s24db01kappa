@@ -1,0 +1,9 @@
+
+extends layout
+ 
+block content
+  h1(style="color: blue;padding:10px;margin:10px;font-size:25px") A Random Item
+  - var image_names = ['knife1.jpg', 'knife2.jpg', 'knife3.jpg', 'knife4.jpg', 'knife5.jpg']
+  - for (let i = 0; i < 3; i++)
+    - var randomIndex = Math.floor(Math.random() * 5)
+    img(src=`/images/${image_names[randomIndex]}`, alt=image_names[randomIndex], height="300", width="300")
