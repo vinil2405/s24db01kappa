@@ -4,13 +4,9 @@ block content
   h1= title
   div.container-fluid
    div.row
-     -
-        let results = [
-          { knife_name: 'chef knife', size: 'Small', price: 39.99 },
-          { knife_name: 'utility knife', size: 'Large', price: 19.99 },
-          { knife_name: 'boning knife', size: 'Medium', price: 29.99 }
-        ]
-     each knife,index in results
+     - 
+        let Knife = results
+     each knife,index in Knife        
        div.col-sm-2(onclick=`buy(${index})`)
         p(style="color:yellow;") knife_name: #{knife.knife_name}
         p(style="color:green;") Size: #{knife.size}

@@ -7,3 +7,10 @@ router.get('/', function(req, res, next) {
 });
 
 module.exports = router;
+var express = require('express');
+const knife_controlers= require('../controllers/knife');
+var router = express.Router();
+/* GET knife */
+router.get('/', knife_controlers.knife_view_all_Page );
+module.exports = router;
+
