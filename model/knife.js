@@ -6,4 +6,15 @@ price: Number
 })
 module.exports = mongoose.model("knife",
 knifeSchema)
- 
+ // List of all Costumes
+exports.knife_list = async function(req, res) {
+    try{
+    theknife = await knife.find();
+    res.send(theknife);
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+    };
+    

@@ -19,3 +19,14 @@ res.send('NOT IMPLEMENTED: Knife delete DELETE ' + req.params.id);
 exports.knife_update_put = function(req, res) {
 res.send('NOT IMPLEMENTED: Knife update PUT' + req.params.id);
 };
+//List of all Costumes
+exports.knife_list = async function(req, res) {
+try{
+theknife = await knife.find();
+res.send(theknife);
+}
+catch(err){
+res.status(500);
+res.send(`{"error": ${err}}`);
+}
+};
