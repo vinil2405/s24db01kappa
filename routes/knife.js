@@ -12,5 +12,7 @@ const knife_controlers= require('../controllers/knife');
 var router = express.Router();
 /* GET knife */
 router.get('/', knife_controlers.knife_view_all_Page );
+// GET request for one costume.
+router.get('/knife/:id', knife_controlers.knife_detail);
 module.exports = router;
 
