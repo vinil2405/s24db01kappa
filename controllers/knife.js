@@ -95,4 +95,16 @@ exports.knife_create_post = async function(req, res) {
     }
     };
     
+    // Handle Knife delete on DELETE.
+exports.knife_delete = async function(req, res) {
+    console.log("delete " + req.params.id)
+    try {
+    result = await knife.findByIdAndDelete( req.params.id)
+    console.log("Removed " + result)
+    res.send(result)
+    } catch (err) {
+    res.status(500)
+    res.send(`{"error": Error deleting ${err}}`);
+    }
+    };
     
