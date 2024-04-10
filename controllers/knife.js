@@ -120,4 +120,18 @@ exports.knife_view_one_Page = async function(req, res) {
     res.send(`{'error': '${err}'}`);
     }
     };
+// Handle building the view for creating a knife.
+// No body, no in path parameter, no query.
+// Does not need to be async
+exports.knife_create_Page = function(req, res) {
+    console.log("create view")
+    try{
+    res.render('knifecreate', { title: 'knife Create'});
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+    };
+    
     

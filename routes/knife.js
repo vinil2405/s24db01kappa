@@ -16,5 +16,7 @@ router.get('/', knife_controlers.knife_view_all_Page );
 router.get('/knife/:id', knife_controlers.knife_detail);
 /* GET detail knife page */
 router.get('/detail', knife_controlers.knife_view_one_Page);
+/* GET create knife page */
+router.get('/create', knife_controlers.knife_create_Page);
 module.exports = router;
 
