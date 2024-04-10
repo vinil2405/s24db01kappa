@@ -1,0 +1,24 @@
+extends layout
+block content
+  h1= title
+ 
+  if toShow == null
+    h2 No instance to show
+  else
+    - let knifeid = toShow._id
+    - let knife_name = toShow.knife_name
+    - let size = toShow.size
+    - let price = toShow.price
+    div
+      div.row
+        div.knifeAttr.mr-3 knife ID is:
+        div #{knifeid}
+      div.row
+        div.knifeAttr.mr-3 knife name is:
+        div #{knife_name}
+      div.row
+        div.knifeAttr.mr-3 knife Size is:
+        div #{size}
+      div.row
+        div.knifeAttr.mr-3 knife Price is:
+        div #{price}
