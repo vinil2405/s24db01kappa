@@ -1,0 +1,43 @@
+extends layout
+ 
+block content
+    h1= title
+    if (toShow == null)
+        h2 No instance to update
+    else
+        - let knifeid = toShow._id
+        - let knife_name  = toShow.knife_name
+        - let size = toShow.size
+        - let price = toShow.price
+        div.row(class='mb-2')
+            div.mr-1 ID is
+                div #{knifeid}
+                - let actionid = "/resource/knife/" + knifeid
+                form(id='knifeForm', action= actionid, method="POST")
+                    div.form-group
+                        label.knifeAttr(for='knife_name') knife Style
+                        input#knife_name(type='text' name='knife_name', value= knife_name)
+                    div.form-group
+                        label.knifeAttr(for='size') knife Size
+                        input#size(type='text' name='size', value= size)
+                    div.form-group
+                        label.knifeAttr(for='price') knife Price
+                        input#price(type='number' name='price', value= price)
+                    input(type="submit")
+    script.
+        document.forms['knifeForm'].addEventListener('submit', (event) => {
+            event.preventDefault();
+            // TODO do something here to show user tknife form is being submitted
+            fetch(event.target.action, {
+                method: 'PUT',
+                body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+            }).then((resp) => {
+                return resp.text(); // or resp.text() or wknifeever the server sends
+            }).then((body) => {
+                alert("Update succeeded")
+                // TODO handle body
+            }).catch((error) => {
+                // TODO handle error
+                alert("Update failed " + error )
+            });
+        });

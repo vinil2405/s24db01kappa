@@ -19,4 +19,6 @@ router.get('/detail', knife_controlers.knife_view_one_Page);
 /* GET create knife page */
 router.get('/create', knife_controlers.knife_create_Page);
 module.exports = router;
+/* GET create update page */
+router.get('/update', knife_controlers.knife_update_Page);
 
