@@ -1,30 +1,38 @@
 extends layout
  
 block content
-
+  style.
+    body {
+      background-color: yellow;
+    }
+    .form-group {
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+ 
   h1= title
  
-  form(id='knifeForm', action="/resource/knife", method="POST")
+  form(id='hatForm', action="/resource/hat", method="POST")
     div.form-group
-      label.knifeAttr(for='knife_name') knife Name
-      input#knife_name(type='text', name='knife_name')
+      label.hatAttr(for='hat_style') Hat Style
+      input#hat_style(type='text', name='hat_style')
     div.form-group
-      label.knifeAttr(for='size') knife size
+      label.hatAttr(for='size') Hat size
       input#size(type='text', name='size')
     div.form-group
-      label.knifeAttr(for='price') knife price
+      label.hatAttr(for='price') hat price
       input#price(type='number', name='price')
-    input(type="submit")
+    input(type="submit" class="btn btn-secondary")
  
   script.
-    document.forms['knifeForm'].addEventListener('submit', (event) => {
+    document.forms['hatForm'].addEventListener('submit', (event) => {
       event.preventDefault();
-      // TODO do something here to show user tknife form is being submitted
+      // TODO do something here to show user that form is being submitted
       fetch(event.target.action, {
         method: 'POST',
         body: new URLSearchParams(new FormData(event.target)) // event.target is the form
       }).then((resp) => {
-        return resp.json(); // or resp.text() or wknifeever the server sends
+        return resp.json(); // or resp.text() or whatever the server sends
       }).then((body) => {
         alert("Save succeeded");
         // TODO handle body
