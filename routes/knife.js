@@ -18,7 +18,8 @@ router.get('/knife/:id', knife_controlers.knife_detail);
 router.get('/detail', knife_controlers.knife_view_one_Page);
 /* GET create knife page */
 router.get('/create', knife_controlers.knife_create_Page);
-module.exports = router;
 /* GET create update page */
 router.get('/update', knife_controlers.knife_update_Page);
-
+/* GET delete knife page */
+router.get('/delete', knife_controlers.knife_delete_Page);
+module.exports = router;
