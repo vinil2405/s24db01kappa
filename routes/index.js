@@ -3,10 +3,10 @@ var passport = require('passport');
 var router = express.Router();
 var Account = require('../model/account');
 router.get('/', function (req, res) {
-res.render('index', { title: 'knife App', user : req.user });
+res.render('index', { title: 'Knife App', user : req.user });
 });
 router.get('/register', function(req, res) {
-res.render('register', { title: 'knife App Registration'});
+res.render('register', { title: 'Knife App Registration'});
 });
 router.post('/register', function(req, res) {
 Account.findOne({ username : req.body.username })
@@ -35,9 +35,10 @@ res.redirect('/');
 return res.render('register', { title: 'Registration',
 message: 'Registration error', account : req.body.username })
 })
-})
+});
+
 router.get('/login', function(req, res) {
-  res.render('login', { title: 'Costume App Login', user : req.user });
+  res.render('login', { title: 'Knife App Login', user : req.user });
   });
   router.post('/login', passport.authenticate('local'), function(req, res) {
   res.redirect('/');

@@ -25,9 +25,18 @@ block content
   div(class="container-fluid")
   div(class="row m-1")
     each item in items
+     
       - let destination = `dispatch(\"/knife/update?id=${item._id}\")`
+      - let destinationcreate = `dispatch(\"/knife/create")`
+      - let destinationdetail = `dispatch(\"/knife/detail?id=${item._id}\")`
+      - let destinationdelete = `dispatch(\"/knife/delete?id=${item._id}\")`
       div(class="row-sm-2", class="m-1") Item: #{item.knife_name}(#{item.size}) is #{item.price}
       button.btn( class="btn-primary ml-1", onclick= destination) Update
+      button.btn( class="btn-secondary ml-1", onclick= destinationcreate) create 
+      button.btn( class="btn-warning ml-1", onclick= destinationdetail) detail
+      button.btn( class="btn-danger ml-1", onclick= destinationdelete) delete 
+    
   script.
     function dispatch(path){
       window.location.href=path}
+     
